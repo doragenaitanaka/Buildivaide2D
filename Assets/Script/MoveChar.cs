@@ -35,6 +35,8 @@ public class MoveChar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
 //===========================================================================================================
 //地面、崖、壁判定
 //===========================================================================================================
@@ -96,6 +98,8 @@ public class MoveChar : MonoBehaviour
         touch_hit = Physics2D.Raycast(touch_ray.origin, touch_ray.direction, 10.0f);
         if (touch_hit.collider != null)
         {
+            Debug.Log("当たったよ");
+            Debug.Log(touch_hit.distance);
             if (touch_hit.distance < 1.0f)
             {
                 _touchFg = true; //地面に接触している
@@ -135,7 +139,7 @@ public class MoveChar : MonoBehaviour
         //    }
 
         //}
-        //Debug.Log(g_cubeFg);
+        Debug.Log(g_cubeFg);
         g_cubeFg = false;
         _touchFg = false;//否
 
@@ -152,14 +156,12 @@ public class MoveChar : MonoBehaviour
         wall_hit = Physics2D.Raycast(wall_ray.origin,wall_ray.direction, 10.0f);
         if(wall_hit.collider != null)
         {
-            Debug.Log("当たったよ");
-            Debug.Log("生きてる" + g_isAliveFg);
-            if (wall_hit.distance < 5.0f)
+            if(wall_hit.distance < 5.0f)
             {
                 _wallFg = true; //目の前に壁がある
                 return;
             }
-            if(wall_hit.distance < 5.0f && wall_hit.collider.CompareTag("wall"))
+            if(wall_hit.collider.CompareTag("wall"))
             {
                 g_isAliveFg = false;
             }
