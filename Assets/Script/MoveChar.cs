@@ -17,19 +17,19 @@ public class MoveChar : MonoBehaviour
 
     public bool g_cubeFg = false;
 
-    private Vector2 moveForward; //移動度
-    private Vector2 jumpForward; //ジャンプの移動度
-    private Rigidbody2D rb;
+    private Vector2 _moveForward; //移動度
+    private Vector2 _jumpForward; //ジャンプの移動度
+    private Rigidbody2D _rb;
 
 
-    private Collider m_Collider;
+    private Collider _Collider;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        m_Collider = GetComponent<Collider>();
+        _rb = GetComponent<Rigidbody2D>();
+        _Collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -54,9 +54,9 @@ public class MoveChar : MonoBehaviour
             _wallFg = false;
             _airFg = false;
             _jumpFg = false;
-            rb.velocity = new Vector2(rb.velocity.x, 0.0f); //y方向の移動度をリセットする
-            jumpForward.y = 1.0f; //上方向へ移動
-            rb.AddForce(jumpForward * g_jumpPower, ForceMode2D.Impulse);
+            _rb.velocity = new Vector2(_rb.velocity.x, 0.0f); //y方向の移動度をリセットする
+            _jumpForward.y = 1.0f; //上方向へ移動
+            _rb.AddForce(_jumpForward * g_jumpPower, ForceMode2D.Impulse);
             _jumpFg = false;
         }
 //===========================================================================================================
@@ -76,13 +76,13 @@ public class MoveChar : MonoBehaviour
 //===========================================================================================================
     void FixedUpdate () 
     {
-        rb = this.transform.GetComponent<Rigidbody2D> ();
+        _rb = this.transform.GetComponent<Rigidbody2D> ();
         Vector3 force = new Vector3 (30.0f, 0.0f, 0.0f);
 
         // 速度が10以下かつ生存フラグがtrueなら力を加える
-        if (rb.velocity.magnitude < 10.0f && g_isAliveFg == true) 
+        if (_rb.velocity.magnitude < 10.0f && g_isAliveFg == true) 
         {
-            rb.AddForce (force); // 力を加える
+            _rb.AddForce (force); // 力を加える
         }
     }
 
@@ -91,11 +91,11 @@ public class MoveChar : MonoBehaviour
 //===========================================================================================================
     public void touch()
     {
-
+        //raycast
         Ray touch_ray = new Ray(this.transform.position + new Vector3(0.0f, 0.05f, 0.0f), new Vector3(0.0f, -1.0f, 0.0f));
         RaycastHit2D touch_hit;//当たった結果を代入する変数
         Debug.DrawRay(touch_ray.origin, touch_ray.direction * 3, Color.red, 1.0f); // 長さ3、赤色で1秒間可視化
-        touch_hit = Physics2D.BoxCast(touch_ray.origin,new Vector2(3,1f),0.0f, touch_ray.direction, 0.5f);
+        touch_hit = Physics2D.Raycast(touch_ray.origin, touch_ray.direction, 10.0f);
         if (touch_hit.collider != null)
         {
             Debug.Log("当たったよ");
@@ -103,7 +103,7 @@ public class MoveChar : MonoBehaviour
             if (touch_hit.distance < 1.0f)
             {
                 _touchFg = true; //地面に接触している
-                if (rb.velocity.y < 0)
+                if (_rb.velocity.y < 0)
                 {
                     _jumpFg = true;
                 }
@@ -115,6 +115,30 @@ public class MoveChar : MonoBehaviour
             }
 
         }
+        //Boxcast
+        //Ray touch_ray = new Ray(this.transform.position + new Vector3(0.0f, 0.05f, 0.0f), new Vector3(0.0f, -1.0f, 0.0f));
+        //RaycastHit2D touch_hit;//当たった結果を代入する変数
+        //Debug.DrawRay(touch_ray.origin, touch_ray.direction * 3, Color.red, 1.0f); // 長さ3、赤色で1秒間可視化
+        //touch_hit = Physics2D.BoxCast(touch_ray.origin,new Vector2(3,1f),0.0f, touch_ray.direction, 0.5f);
+        //if (touch_hit.collider != null)
+        //{
+        //    Debug.Log("当たったよ");
+        //    Debug.Log(touch_hit.distance);
+        //    if (touch_hit.distance < 1.0f)
+        //    {
+        //        _touchFg = true; //地面に接触している
+        //        if (rb.velocity.y < 0)
+        //        {
+        //            _jumpFg = true;
+        //        }
+        //        if (touch_hit.collider.CompareTag("Cube"))
+        //        {
+        //            g_cubeFg = true;
+        //        }
+        //        return;
+        //    }
+
+        //}
         Debug.Log(g_cubeFg);
         g_cubeFg = false;
         _touchFg = false;//否
