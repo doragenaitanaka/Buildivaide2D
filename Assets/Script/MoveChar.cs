@@ -53,7 +53,6 @@ public class MoveChar : MonoBehaviour
         {
             _wallFg = false;
             _airFg = false;
-            _jumpFg = false;
             _rb.velocity = new Vector2(_rb.velocity.x, 0.0f); //y方向の移動度をリセットする
             _jumpForward.y = 1.0f; //上方向へ移動
             _rb.AddForce(_jumpForward * g_jumpPower, ForceMode2D.Impulse);
@@ -98,8 +97,8 @@ public class MoveChar : MonoBehaviour
         touch_hit = Physics2D.Raycast(touch_ray.origin, touch_ray.direction, 10.0f);
         if (touch_hit.collider != null)
         {
-            Debug.Log("当たったよ");
-            Debug.Log(touch_hit.distance);
+            //Debug.Log("当たったよ");
+            //Debug.Log(touch_hit.distance);
             if (touch_hit.distance < 1.0f)
             {
                 _touchFg = true; //地面に接触している
@@ -139,7 +138,7 @@ public class MoveChar : MonoBehaviour
         //    }
 
         //}
-        Debug.Log(g_cubeFg);
+        //Debug.Log(g_cubeFg);
         g_cubeFg = false;
         _touchFg = false;//否
 
@@ -156,17 +155,25 @@ public class MoveChar : MonoBehaviour
         wall_hit = Physics2D.Raycast(wall_ray.origin,wall_ray.direction, 10.0f);
         if(wall_hit.collider != null)
         {
-            if(wall_hit.distance < 5.0f)
+            if (wall_hit.collider.CompareTag("wall"))
+            {
+                Debug.Log("壁");
+                if (wall_hit.distance < 1.0f)
+                {
+                    g_isAliveFg = false;
+                }
+                //Debug.Log(wall_hit.distance);
+            }
+
+            if (wall_hit.distance < 5.0f)
             {
                 _wallFg = true; //目の前に壁がある
                 return;
             }
-            if(wall_hit.collider.CompareTag("wall"))
-            {
-                g_isAliveFg = false;
-            }
+            
             
         }
+        //Debug.Log("生きてる？" + g_isAliveFg);
         _wallFg = false; //目の前に壁がある
     }
     
