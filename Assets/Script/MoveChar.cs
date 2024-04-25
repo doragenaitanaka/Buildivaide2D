@@ -65,8 +65,24 @@ public class MoveChar : MonoBehaviour
         {
             g_isAliveFg = false;
         }
-        
+//===========================================================================================================
+//停止判定
+//===========================================================================================================
+        if (_rb.velocity.x < 0.2)
+        {
+            g_isAliveFg = false;
+        }
+
+
+
+        //死んだらlog出す
+        if(g_isAliveFg == false)
+        {
+            _rb.velocity = new Vector2(0.0f, _rb.velocity.y); //y方向の移動度をリセットする
+            Debug.Log("Player is Dead");
+        }
     }
+
 //===========================================================================================================
 
 
@@ -128,14 +144,12 @@ public class MoveChar : MonoBehaviour
         wall_hit = Physics2D.Raycast(wall_ray.origin,wall_ray.direction, 10.0f);
         if(wall_hit.collider != null)
         {
-            if (wall_hit.collider.CompareTag("wall"))
+            if (wall_hit.collider.CompareTag("wall"))   //障害物とぶつかったら
             {
-                Debug.Log("壁");
-                if (wall_hit.distance < 1.0f)
+                if (wall_hit.distance < 0.5f)
                 {
                     g_isAliveFg = false;
                 }
-                //Debug.Log(wall_hit.distance);
             }
 
             if (wall_hit.distance < 5.0f)
@@ -146,7 +160,6 @@ public class MoveChar : MonoBehaviour
             
             
         }
-        //Debug.Log("生きてる？" + g_isAliveFg);
         _wallFg = false; //目の前に壁がある
     }
     
@@ -155,18 +168,18 @@ public class MoveChar : MonoBehaviour
 //===========================================================================================================
     private void AirJump()
     {
-        Ray air_ray = new Ray(this.transform.position + new Vector3(3.0f, 0.05f, 0.0f),new Vector3(0.0f, -1.0f, 0.0f));
-        RaycastHit2D air_hit;//当たった結果を代入する変数
+        Ray air_ray = new Ray(this.transform.position + new Vector3(3.0f, 0.05f, 0.0f),new Vector3(0.0f, -1.0f, 0.0f)); //前にray出す
+        RaycastHit2D air_hit;   //当たった結果を代入する変数
         Debug.DrawRay(air_ray.origin, air_ray.direction * 3, Color.blue, 1.0f); // 長さ3、赤色で1秒間可視化
-        air_hit = Physics2D.Raycast(air_ray.origin,air_ray.direction, 10.0f);
-        if(air_hit.collider != null)
+        air_hit = Physics2D.Raycast(air_ray.origin,air_ray.direction, 10.0f);   //当たったオブジェクトのデータを代入
+        if(air_hit.collider != null)    
         {
             if(air_hit.distance < 1.0f)
             {
-                _airFg = false; //地面に接触して否
+                _airFg = false; //地面に接触してない
                 return;
             }
         }
-        _airFg = true; //地面に接触して可
+        _airFg = true; //地面に接触している
     }
 }
