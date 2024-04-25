@@ -40,8 +40,6 @@ public class Create : MonoBehaviour
         {
             createFg = true;
         }
-
-        //Debug.Log("create" + createFg);
         
     }
 

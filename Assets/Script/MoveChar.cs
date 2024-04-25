@@ -92,55 +92,28 @@ public class MoveChar : MonoBehaviour
     {
         //raycast
         Ray touch_ray = new Ray(this.transform.position + new Vector3(0.0f, 0.05f, 0.0f), new Vector3(0.0f, -1.0f, 0.0f));
-        RaycastHit2D touch_hit;//当たった結果を代入する変数
-        Debug.DrawRay(touch_ray.origin, touch_ray.direction * 3, Color.red, 1.0f); // 長さ3、赤色で1秒間可視化
+        RaycastHit2D touch_hit;     //当たった結果を代入する変数
+        Debug.DrawRay(touch_ray.origin, touch_ray.direction * 3, Color.red, 1.0f);  // 長さ3、赤色で1秒間可視化
         touch_hit = Physics2D.Raycast(touch_ray.origin, touch_ray.direction, 10.0f);
         if (touch_hit.collider != null)
         {
-            //Debug.Log("当たったよ");
-            //Debug.Log(touch_hit.distance);
             if (touch_hit.distance < 1.0f)
             {
                 _touchFg = true; //地面に接触している
-                if (_rb.velocity.y < 0)
+                if (_rb.velocity.y < 0) //プレイヤーが下方向に動いていたら
                 {
-                    _jumpFg = true;
+                    _jumpFg = true;     //ジャンプできるようにする
                 }
-                if (touch_hit.collider.CompareTag("Cube"))
+                if (touch_hit.collider.CompareTag("Cube"))  //地面のtagがCubeであれば
                 {
-                    g_cubeFg = true;
+                    g_cubeFg = true;    
                 }
                 return;
             }
 
         }
-        //Boxcast
-        //Ray touch_ray = new Ray(this.transform.position + new Vector3(0.0f, 0.05f, 0.0f), new Vector3(0.0f, -1.0f, 0.0f));
-        //RaycastHit2D touch_hit;//当たった結果を代入する変数
-        //Debug.DrawRay(touch_ray.origin, touch_ray.direction * 3, Color.red, 1.0f); // 長さ3、赤色で1秒間可視化
-        //touch_hit = Physics2D.BoxCast(touch_ray.origin,new Vector2(3,1f),0.0f, touch_ray.direction, 0.5f);
-        //if (touch_hit.collider != null)
-        //{
-        //    Debug.Log("当たったよ");
-        //    Debug.Log(touch_hit.distance);
-        //    if (touch_hit.distance < 1.0f)
-        //    {
-        //        _touchFg = true; //地面に接触している
-        //        if (rb.velocity.y < 0)
-        //        {
-        //            _jumpFg = true;
-        //        }
-        //        if (touch_hit.collider.CompareTag("Cube"))
-        //        {
-        //            g_cubeFg = true;
-        //        }
-        //        return;
-        //    }
-
-        //}
-        //Debug.Log(g_cubeFg);
         g_cubeFg = false;
-        _touchFg = false;//否
+        _touchFg = false;
 
     }
 

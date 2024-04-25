@@ -269,6 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4587396215336472076}
+  - component: {fileID: 3389631286169066334}
   m_Layer: 0
   m_Name: WALL
   m_TagString: wall
@@ -293,3 +294,24 @@ Transform:
   - {fileID: 1468130657296034503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3389631286169066334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569696971400643986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27227d235e32b9e4da46b0fd96478d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Material:
+  - {fileID: 2100000, guid: d70085123ca1b484093a71daedf45f98, type: 2}
+  - {fileID: 2100000, guid: 03d2258f46cb59e4da1adbdae24dbac6, type: 2}
+  - {fileID: 2100000, guid: 66f815be3afbdb342a238c0c1f7dd9c8, type: 2}
+  - {fileID: 2100000, guid: 13cff515158186443a03e9d09ecb9d5f, type: 2}
+  - {fileID: 2100000, guid: 2203c873302254749bd64de59d2c51d1, type: 2}
+  - {fileID: 2100000, guid: 5c23c800a282db148b8102c36d15657e, type: 2}
+  - {fileID: 2100000, guid: d5b2c10c812e03544bf65475e891daec, type: 2}
+  - {fileID: 2100000, guid: 0c775bee8a44e41488e6327ebdbd9036, type: 2}

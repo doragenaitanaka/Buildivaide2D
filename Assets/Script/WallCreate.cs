@@ -9,13 +9,13 @@ public class WallCreate : MonoBehaviour
     public float g_oldDis;
     public GameObject g_wallobj;//生成したプレハブを保存する
     public GameObject g_wall; //プレハブ
-    public Material[] Material; // 変更後のマテリアルを設定するための変数
+   
 
     [Header("rand")]
     [SerializeField] private int geneRand, wallRandPos;
     void Start()
     {
-        _player = GameObject.Find("char");
+        _player = GameObject.Find("character");
         _startPos = GameObject.Find("StartEmpty");
     }
 
@@ -70,9 +70,6 @@ public class WallCreate : MonoBehaviour
             g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -6, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                 break;
         }
-         
-        int rand = UnityEngine.Random.Range(0, 8);
-        //g_wallobj.GetComponent<Renderer>().material = Material[rand];
 
     }
 }

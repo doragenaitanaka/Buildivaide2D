@@ -31,7 +31,7 @@ public class GUIManager : MonoBehaviour
         switch(texID.objID)
         {
             case 100:
-                player = GameObject.Find("char");
+                player = GameObject.Find("character");
                 startPos = GameObject.Find("StartEmpty");
                 break;
             case 101:

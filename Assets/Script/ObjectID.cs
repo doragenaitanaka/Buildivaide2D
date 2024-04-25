@@ -7,4 +7,5 @@ public class ObjectID : MonoBehaviour
     public int objID;
 
     //GUI 100~199
+    //îwåi 200~210
 }
