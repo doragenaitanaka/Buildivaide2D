@@ -8,7 +8,11 @@ public class CharDead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _charS = this.GetComponent<MoveChar>();
+        _charS = this.GetComponent<MoveChar>(); //MoveCharスクリプトを取得
+        if (_charS != null)
+        {
+            Debug.LogError("Script:MoveCharが見つかりません");
+        }
     }
 
     // Update is called once per frame

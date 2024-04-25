@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "builddivide2D.sln"
+    "dotnet.defaultSolution": "Buildivaide2D.sln"
 }

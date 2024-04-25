@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0ffa0b6151b9447bba14dd466f61a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Material:
-  - {fileID: 2100000, guid: 66f815be3afbdb342a238c0c1f7dd9c8, type: 2}
-  - {fileID: 2100000, guid: 03d2258f46cb59e4da1adbdae24dbac6, type: 2}
+  g_Material:
   - {fileID: 2100000, guid: d70085123ca1b484093a71daedf45f98, type: 2}
-  - {fileID: 2100000, guid: 0c775bee8a44e41488e6327ebdbd9036, type: 2}
-  - {fileID: 2100000, guid: d5b2c10c812e03544bf65475e891daec, type: 2}
-  - {fileID: 2100000, guid: 5c23c800a282db148b8102c36d15657e, type: 2}
+  - {fileID: 2100000, guid: 03d2258f46cb59e4da1adbdae24dbac6, type: 2}
+  - {fileID: 2100000, guid: 66f815be3afbdb342a238c0c1f7dd9c8, type: 2}
   - {fileID: 2100000, guid: 13cff515158186443a03e9d09ecb9d5f, type: 2}
   - {fileID: 2100000, guid: 2203c873302254749bd64de59d2c51d1, type: 2}
+  - {fileID: 2100000, guid: 5c23c800a282db148b8102c36d15657e, type: 2}
+  - {fileID: 2100000, guid: d5b2c10c812e03544bf65475e891daec, type: 2}
+  - {fileID: 2100000, guid: 0c775bee8a44e41488e6327ebdbd9036, type: 2}
 --- !u!50 &7904906813252938552
 Rigidbody2D:
   serializedVersion: 4

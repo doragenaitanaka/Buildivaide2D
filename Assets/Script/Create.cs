@@ -15,6 +15,10 @@ public class Create : MonoBehaviour
     void Start()
     {
         _charS = this.GetComponent<MoveChar>();
+        if (_charS == null)
+        {
+            Debug.LogError("Script:MoveCharが見つかりません");
+        }
     }
 
     // Update is called once per frame
