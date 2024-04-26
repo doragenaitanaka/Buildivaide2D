@@ -824,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1033678132
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,6 +1241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1568301833}
   - component: {fileID: 1568301832}
+  - component: {fileID: 1568301839}
   - component: {fileID: 1568301837}
   - component: {fileID: 1568301835}
   - component: {fileID: 1568301831}
@@ -1320,7 +1321,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1548250891
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.8862745, g: 0.50980395, b: 0.92941177, a: 1}
   m_FlipX: 0
@@ -1444,7 +1445,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d5b5c1d513b36c941b4e30e070a9e3e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1464,8 +1465,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1548250891
   m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Time: 5
+  m_SortingOrder: 0
+  m_Time: 2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1475,29 +1476,38 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0.4935065
+        inSlope: 0.29296297
+        outSlope: 0.29296297
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.4526316
+      - serializedVersion: 3
+        time: 0.4896907
+        value: 0
+        inSlope: -0.059987634
+        outSlope: -0.059987634
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.44210526
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.029047012, a: 1}
-      key1: {r: 0.9874805, g: 1, b: 0, a: 1}
-      key2: {r: 0.09913385, g: 1, b: 0, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0.025752544, g: 0, b: 1, a: 0}
       key3: {r: 0.025752544, g: 0, b: 1, a: 0}
       key4: {r: 0.025752544, g: 0, b: 1, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 2120
-      ctime1: 21588
-      ctime2: 41056
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 58211
       ctime3: 58211
       ctime4: 58211
       ctime5: 0
@@ -1513,7 +1523,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 4
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -1527,6 +1537,19 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1568301839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568301830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19746617e43ae024688bbf73da754a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  g_jumpPower: 8
 --- !u!1 &1929966455
 GameObject:
   m_ObjectHideFlags: 0
