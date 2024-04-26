@@ -9,8 +9,6 @@ public class CubeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rand = UnityEngine.Random.Range(0, 8);              //0~7の数字をrandに入れる
-        GetComponent<Renderer>().material = g_Material[rand];   //Cubeにランダムなマテリアルをつける
         StartCoroutine("delet");
     }
 
