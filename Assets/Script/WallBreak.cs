@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeScript : MonoBehaviour
+public class WallBreak : MonoBehaviour
 {
-    //public Material[] g_Material; // 変更後のマテリアルを設定するための変数
-    
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("delet");
@@ -18,7 +15,7 @@ public class CubeScript : MonoBehaviour
 //===========================================================================================================
     IEnumerator delet() 
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(8.0f);
         Destroy(gameObject);
     } 
 }

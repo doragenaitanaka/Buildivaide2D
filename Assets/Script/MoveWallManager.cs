@@ -10,14 +10,13 @@ public class MoveWallManager : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log("接触！！！！");
         colbreakFg = true;
     }
 
     /// Rendererが任意のカメラから見えると呼び出される
     private void OnBecameVisible()
     {
-        Debug.Log(Camera.current.name);
+        //Debug.Log(Camera.current.name);
         _ID = this.gameObject.GetComponent<ObjectID>();
         if (_ID == null) //TextMeshProUGUIが見つからなければエラー
         {

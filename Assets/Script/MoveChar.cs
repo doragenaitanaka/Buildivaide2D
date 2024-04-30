@@ -79,7 +79,6 @@ public class MoveChar : MonoBehaviour
         if(g_isAliveFg == false)
         {
             _rb.velocity = new Vector2(0.0f, _rb.velocity.y); //y方向の移動度をリセットする
-            Debug.Log("Player is Dead");
         }
     }
 
