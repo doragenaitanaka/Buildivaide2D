@@ -76,19 +76,15 @@ public class WallCreate : MonoBehaviour
                 switch(_wallRandPos)
                 {
                     case 0:
-                    Debug.Log("0");
                     g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -2, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                         break;
                     case 1:
-                    Debug.Log("1");
                     g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -3, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                         break;
                     case 2:
-                    Debug.Log("2");
                     g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -5, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                         break;
                     case 3:
-                    Debug.Log("3");
                     g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -6, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                         break;
                 }
