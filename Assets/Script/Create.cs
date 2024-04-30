@@ -44,7 +44,6 @@ public class Create : MonoBehaviour
         {
             createFg = true;
         }
-        
     }
 
     IEnumerator CreateFun() 

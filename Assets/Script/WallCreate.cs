@@ -7,7 +7,7 @@ public class WallCreate : MonoBehaviour
     private GameObject _player,_startPos;
     private bool _startFg = false;
     public float g_oldDis;
-    public GameObject g_wallobj;//生成したプレハブを保存する
+    public GameObject g_wallobj, g_upWallobj,g_downWallobj;//生成したプレハブを保存する
     public GameObject g_wall; //プレハブ
    
 
@@ -60,23 +60,48 @@ public class WallCreate : MonoBehaviour
         
         Transform pos = _player.transform;      //
         var spawnPos = pos.position.x + 20.0f;  //プレイヤーの前方に出現位置を設定
-        //ランダムな高さに穴を出現させる
-        _wallRandPos = UnityEngine.Random.Range(0, 3);
-        switch(_wallRandPos)
+        int wallrand = UnityEngine.Random.Range(0, 10);
+        switch(wallrand)
         {
-            case 0:
-            g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -2, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
-                break;
+            case 0://Default Wall
             case 1:
-            g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -3, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
-                break;
             case 2:
-            g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -5, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                //ランダムな高さに穴を出現させる
+                _wallRandPos = UnityEngine.Random.Range(0, 3);
+                switch(_wallRandPos)
+                {
+                    case 0:
+                    Debug.Log("0");
+                    g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -2, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                        break;
+                    case 1:
+                    Debug.Log("1");
+                    g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -3, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                        break;
+                    case 2:
+                    Debug.Log("2");
+                    g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -5, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                        break;
+                    case 3:
+                    Debug.Log("3");
+                    g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -6, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                        break;
+                }
                 break;
-             case 3:
-            g_wallobj = Instantiate(g_wall, new Vector3(spawnPos, -6, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+            case 8://GateUpWall
+                g_wallobj = Instantiate(g_upWallobj, new Vector3(spawnPos, -12, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                 break;
+            case 9:
+                g_wallobj = Instantiate(g_downWallobj, new Vector3(spawnPos, 15, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                break;
+                
         }
+        
 
     }
 }
