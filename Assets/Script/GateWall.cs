@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class GateWall : MonoBehaviour
 {
-    private ObjectID _ID;
+    // private ObjectID _ID;
+    private GameObject gate;
 
-    
-    void Start()
+    private void OnCollisionEnter2D(Collision2D other) 
     {
-        _ID = this.gameObject.GetComponent<ObjectID>();
-        if (_ID == null) //TextMeshProUGUIが見つからなければエラー
+        Debug.Log("当たった");
+        if (other.gameObject.tag == "Cube")
         {
-            Debug.LogError("Script:ObjectIDが見つかりません");
-            return;
+            Destroy(gate);
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        // _ID = this.gameObject.GetComponent<ObjectID>();
+        // if (_ID == null) //TextMeshProUGUIが見つからなければエラー
+        // {
+        //     Debug.LogError("Script:ObjectIDが見つかりません");
+        //     return;
+        // }
+
+        gate = GameObject.Find("gate");
+        if (gate == null) //TextMeshProUGUIが見つからなければエラー
+        {
+            Debug.LogError("gateが見つかりません");
+            return;
+        }
+
     }
+
+
 }
