@@ -11,7 +11,6 @@ public class Create : MonoBehaviour
     private Mouse _mouse;
 
     public bool g_createFg = true;
-    public bool g_generatFg = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,28 +29,13 @@ public class Create : MonoBehaviour
             {
                 // マウスカーソルの位置を取得
                 Vector2 mousePos = _mouse.position.ReadValue();
-                if(mousePos.x < 990 && g_createFg == true)      //画面の左半分なら
-                {
-                    Debug.Log("左だよ");
-                    // スクリーン座標のZ値を5に変更  
-                    var screenPos = new Vector3(mousePos.x, mousePos.y, 5f);  
-                    // ワールド座標に変換  
-                    var worldPos = Camera.main.ScreenToWorldPoint(screenPos);  
-                    g_obj = Instantiate(g_cube, worldPos, Quaternion.identity); //vecの位置にprefabObjを出現させる
-                    g_createFg = false;
-                    StartCoroutine("CreateFun");
-                }
-                if(mousePos.x >= 990 && g_generatFg == true)    //画面の右半分なら
-                {
-                    Debug.Log("右だよ");
-                    // スクリーン座標のZ値を5に変更  
-                    var screenPos = new Vector3(mousePos.x, mousePos.y, 5f);  
-                    // ワールド座標に変換  
-                    var worldPos = Camera.main.ScreenToWorldPoint(screenPos);  
-                    g_obj = Instantiate(g_cube, worldPos, Quaternion.identity); //vecの位置にprefabObjを出現させる
-                    g_generatFg = false;
-                    StartCoroutine("GeneratFun");
-                }
+                // スクリーン座標のZ値を5に変更  
+                var screenPos = new Vector3(mousePos.x, mousePos.y, 5f);  
+                // ワールド座標に変換  
+                var worldPos = Camera.main.ScreenToWorldPoint(screenPos);  
+                g_obj = Instantiate(g_cube, worldPos, Quaternion.identity); //vecの位置にprefabObjを出現させる
+                g_createFg = false;
+                StartCoroutine("CreateFun");
             }
         
         if(_charS.g_cubeFg == true)
@@ -64,10 +48,5 @@ public class Create : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         g_createFg = true;
-    } 
-    IEnumerator GeneratFun() 
-    {
-        yield return new WaitForSeconds(0.5f);
-        g_generatFg = true;
     } 
 }

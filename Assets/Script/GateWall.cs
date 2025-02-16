@@ -5,7 +5,7 @@ using UnityEngine;
 public class GateWall : MonoBehaviour
 {
     // private ObjectID _ID;
-    private GameObject gate;
+    public GameObject gate;
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
@@ -24,7 +24,6 @@ public class GateWall : MonoBehaviour
         //     return;
         // }
 
-        gate = GameObject.Find("gate");
         if (gate == null) //TextMeshProUGUIが見つからなければエラー
         {
             Debug.LogError("gateが見つかりません");
