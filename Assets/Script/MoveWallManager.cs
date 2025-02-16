@@ -32,6 +32,9 @@ public class MoveWallManager : MonoBehaviour
             case 201:
                 StartCoroutine("MoveDown");
                 break;
+            case 202:
+                StartCoroutine("MoveWall");
+            break;
         }
     }
 
@@ -39,11 +42,11 @@ public class MoveWallManager : MonoBehaviour
     {
         var posX = this.transform.position.x;
         var posY = this.transform.position.y;
-        for (int i = 0; i < 120; i++)
+        for (int i = 0; i < 60; i++)
         {
             yield return new WaitForSeconds(0.02f);
             this.transform.position = new Vector3(posX,posY);
-            posY += 0.1f;
+            posY += 0.2f;
             if (colbreakFg){yield break;}
         }
         
@@ -53,14 +56,43 @@ public class MoveWallManager : MonoBehaviour
     {
         var posX = this.transform.position.x;
         var posY = this.transform.position.y;
-        for (int i = 0; i < 120; i++)
+        for (int i = 0; i < 60; i++)
         {
             yield return new WaitForSeconds(0.04f);
             this.transform.position = new Vector3(posX,posY);
-            posY -= 0.1f;
+            posY -= 0.2f;
             if (colbreakFg){yield break;}
         }
         
         
+    } 
+
+    IEnumerator MoveWall() 
+    {
+        int moveWallRand = UnityEngine.Random.Range(0, 2);
+        if(moveWallRand == 0)
+        {
+            var posX = this.transform.position.x;
+            var posY = this.transform.position.y;
+            for (int i = 0; i < 20; i++)
+            {
+                yield return new WaitForSeconds(0.04f);
+                this.transform.position = new Vector3(posX,posY);
+                posY -= 0.05f;
+                if (colbreakFg){yield break;}
+            }   
+        }
+        else
+        {
+            var posX = this.transform.position.x;
+            var posY = this.transform.position.y;
+            for (int i = 0; i < 20; i++)
+            {
+                yield return new WaitForSeconds(0.04f);
+                this.transform.position = new Vector3(posX,posY);
+                posY += 0.05f;
+                if (colbreakFg){yield break;}
+            }   
+        }
     } 
 }

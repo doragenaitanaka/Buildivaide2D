@@ -7,7 +7,7 @@ public class WallCreate : MonoBehaviour
     private GameObject _player,_startPos;
     private bool _startFg = false;
     public float g_oldDis;
-    public GameObject g_wallobj, g_upWallobj,g_downWallobj;//生成したプレハブを保存する
+    public GameObject g_wallobj, g_moveWallobj,g_upWallobj, g_downWallobj;//生成したプレハブを保存する
     public GameObject g_wall; //プレハブ
    
 
@@ -43,6 +43,7 @@ public class WallCreate : MonoBehaviour
             {
                 g_oldDis = distance;//現在の距離をoldDisに代入
                 _geneRand = UnityEngine.Random.Range(0, 2); //障害物を生成するか決める
+                Debug.Log("GenRand" + _geneRand);
                 if(_geneRand == 0)
                 {
                     WallGenerate();
@@ -70,7 +71,6 @@ public class WallCreate : MonoBehaviour
             case 4:
             case 5:
             case 6:
-            case 7:
                 //ランダムな高さに穴を出現させる
                 _wallRandPos = UnityEngine.Random.Range(0, 3);
                 switch(_wallRandPos)
@@ -89,13 +89,15 @@ public class WallCreate : MonoBehaviour
                         break;
                 }
                 break;
+            case 7:
+                g_wallobj = Instantiate(g_moveWallobj, new Vector3(spawnPos, 0, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
+                break;
             case 8://GateUpWall
                 g_wallobj = Instantiate(g_upWallobj, new Vector3(spawnPos, -12, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                 break;
             case 9:
                 g_wallobj = Instantiate(g_downWallobj, new Vector3(spawnPos, 15, -1), Quaternion.identity); //vecの位置にprefabObjを出現させる
                 break;
-                
         }
         
 

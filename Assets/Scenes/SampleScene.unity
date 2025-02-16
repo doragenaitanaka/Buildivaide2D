@@ -528,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   g_oldDis: 0
   g_wallobj: {fileID: 0}
+  g_moveWallobj: {fileID: 6569696971400643986, guid: e319e9739dafb0a48a20b88c21c36f80, type: 3}
   g_upWallobj: {fileID: 1045683669514347102, guid: 17f46a93d13eeea4c819d3b1a653286e, type: 3}
   g_downWallobj: {fileID: 3556679418868556554, guid: 22c8689c1f97cd1429b0ed8e61e9c380, type: 3}
   g_wall: {fileID: 6569696971400643986, guid: 1506a2fe0477f3142841e96ea7bfa3de, type: 3}

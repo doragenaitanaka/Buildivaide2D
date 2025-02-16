@@ -117,7 +117,7 @@ public class MoveChar : MonoBehaviour
         {
             _rb.AddForce (force); // 力を加える
         }
-        Debug.Log("Player X Speed: " + Mathf.Abs(_rb.velocity.x));
+        //Debug.Log("Player X Speed: " + Mathf.Abs(_rb.velocity.x));    //キャラクターのスピードチェック
     }
 //===========================================================================================================
 //天井判定

@@ -9,7 +9,7 @@ public class GateWall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log("当たった");
+        //Debug.Log("当たった");
         if (other.gameObject.tag == "Cube")
         {
             Destroy(gate);
