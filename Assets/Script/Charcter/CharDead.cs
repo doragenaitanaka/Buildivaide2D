@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CharDead : MonoBehaviour
 {
@@ -38,13 +40,20 @@ public class CharDead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_charS.g_isAliveFg == false && _instantMotion == false)
+        if (_charS.g_isAliveFg == false && _instantMotion == false)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, 0.0f); //y方向の移動度をリセットする
             _jumpForward.y = 1.0f; //上方向へ移動
             _rb.AddForce(_jumpForward * g_jumpPower, ForceMode2D.Impulse);
             _boxcol.enabled = false;
             _instantMotion = true;
+            StartCoroutine("Result");
         }
     }
+
+    IEnumerator Result()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Result");
+    } 
 }

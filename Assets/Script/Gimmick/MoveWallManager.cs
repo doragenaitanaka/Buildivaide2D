@@ -49,8 +49,6 @@ public class MoveWallManager : MonoBehaviour
             posY += 0.2f;
             if (colbreakFg){yield break;}
         }
-        
-        
     } 
     IEnumerator MoveDown() 
     {
